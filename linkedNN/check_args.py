@@ -35,8 +35,7 @@ def check_args(args):
         and args.empirical is None
     ):
         print(
-            "either --help, --train, --predict, --preprocess,\
-            --empirical,  or --plot_history"
+            "either --help, --preprocess, --train, --predict, or --plot_history"
         )
         exit()
     if args.train is True or args.predict is True or args.preprocess is True:
