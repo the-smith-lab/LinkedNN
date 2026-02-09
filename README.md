@@ -20,7 +20,8 @@ pip install linkedNN
 To test the installation you can apply the pretrained model from the paper to predict from a simulated dataset:
 
 ```
-linkedNN --wd Example_data/ --seed 1 --predict
+git clone https://github.com/the-smith-lab/LinkedNN.git
+linkedNN --wd LinkedNN/Example_data/ --seed 1 --predict
 ```
 
 The LD layer by itself can be accessed using:
