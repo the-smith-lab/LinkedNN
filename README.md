@@ -45,7 +45,7 @@ mamba install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvi
 #### GSL installation
 There may be additional requirements depending on the specific platform.
 In particular, installation of GNU Scientific Library (GSL) is sometimes needed for running simulations with `msprime`.
-See the `msprime` documentation (https://tskit.dev/msprime/docs/stable/installation.html) for up-to-date instructions.
+See the `msprime` documentation (tskit.dev/msprime/docs/stable/installation.html) for up-to-date instructions.
 
 
 

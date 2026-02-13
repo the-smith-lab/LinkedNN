@@ -3,7 +3,7 @@ name = "linkedNN"
 packages = [
     {include = "linkedNN"}
 ]
-version = "0.1.0"
+version = "0.1.1"
 description = "Neural network for capturing linkage disequilibrium related features"
 authors = ["chriscrsmith <chriscs@iu.edu>"]
 readme = "README.md"
