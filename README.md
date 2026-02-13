@@ -14,13 +14,13 @@ Neural network for extracting LD features from SNPs
 <h2 id="installation">Installation</h2>
 
 #### Quick start
-```console
+```
 pip install linkedNN
 ```
 
 To test the installation you can apply the pretrained model from the paper to predict from a simulated dataset:
 
-```console
+```bash
 $ git clone https://github.com/the-smith-lab/LinkedNN.git
 $ linkedNN --wd LinkedNN/Example_data/ --seed 1 --predict
 using saved model from epoch 438
@@ -32,13 +32,13 @@ target 2 MRAE (no-logged): 0.289
 
 The LD layer by itself can be accessed using:
 
-```console
+```
 from linkedNN.models import ld_layer
 ```
 
 GPU compatibility: The code should work out of the box on a CPU, but to train on GPUs you need to sync torch with the particular CUDA version on your computer:
 
-```console
+```
 mamba install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
 
@@ -66,7 +66,7 @@ The working directory for `linkedNN` must itself contain a folder with tree sequ
 
 Example preprocessing command:
 
-```console
+```
 linkedNN --preprocess \
          --wd <path> \
          --seed <int> \
@@ -88,7 +88,7 @@ linkedNN --preprocess \
 #### Training
 After preprocessing all simulations, `linkedNN` can train a model using:
 
-```console
+```
 linkedNN --train \
          --wd <path> \
          --seed <int> \
@@ -100,7 +100,7 @@ linkedNN --train \
 
 #### Testing
 To predict on held-out test data, run:
-```console
+```
 linkedNN --predict \
          --wd <path> \
          --seed <int> \
@@ -110,7 +110,7 @@ linkedNN --predict \
 
 #### Empirical applications
 To predict from an empirical VCF: leave in rare alleles, subset for a particular chromosome, and run the below command.
-```console
+```
 linkedNN --predict \
          --wd <path> \
          --seed <int> \
@@ -138,7 +138,7 @@ Below is a complete, example workflow with `LinkedNN` to provide a sense what in
 For this vignette, we will run one hundred small simulations using a script provided in the GitHub repo.
 However, note that 50,000 simulations and hundreds of training epochs may be required to train successfully.
 
-```console
+```
 git clone https://github.com/the-smith-lab/LinkedNN.git
 for i in {1..100}
 do
@@ -149,20 +149,20 @@ done
 
 
 #### Preprocess
-```console
+```
 linkedNN --preprocess --wd tempdir/ --seed 2 --num_snps 5000 --n 10 --l 1e8 --hold_out 25
 ```
 
 
 #### Train
-```console
+```
 linkedNN --train --wd tempdir/ --seed 2 --batch_size 10 --max_epochs 10
 ```
 The new `max_epochs` flag is used here to limit the number of training epochs (default=1000).
 
 
 #### Test
-```console
+```
 linkedNN --predict --wd tempdir/ --seed 2 --batch_size 10
 ```
 ---
