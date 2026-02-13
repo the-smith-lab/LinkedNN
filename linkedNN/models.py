@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+import warnings
 
 
 class ld_layer(nn.Module):
@@ -76,7 +77,8 @@ class ld_layer(nn.Module):
                                stride=1,
                                )
 
-        ### additional layers after the convolutions             
+        ### additional layers after the convolutions
+        warnings.filterwarnings("ignore", message="Lazy modules are a new feature under heavy development")
         self.final_dense_0 = nn.LazyLinear(128)
         self.final_dense_1 = nn.Linear(128, 128)
         self.final_dense_2 = nn.Linear(128, 128)
@@ -222,6 +224,7 @@ class pairwise_cnn(nn.Module):
             previous_size_geno = int(filter_size)
 
         # additional layers after the convolutions
+        warnings.filterwarnings("ignore", message="Lazy modules are a new feature under heavy development")
         self.dense_shared_geno = nn.LazyLinear(128)
         
         # single dense layer after pairwise operations
@@ -312,6 +315,7 @@ class cnn(nn.Module):
 
         
         # additional layers after the convolutions
+        warnings.filterwarnings("ignore", message="Lazy modules are a new feature under heavy development")
         self.final_dense_0 = nn.LazyLinear(128)
         self.final_dense_1 = nn.Linear(128, 128)
         self.final_dense_2 = nn.Linear(128, 128)
